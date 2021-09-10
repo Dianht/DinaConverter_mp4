@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DinaConverter</title>
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="script.js" defer></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="title">
@@ -15,14 +15,22 @@
     
     <div class="dinaconverter">
         <h3>Entrez un lien Youtube :</h3>
-        <div class="input_url">
+        <div class="inputUrl">
             <input type="url" id="url" name="url"
             placeholder="Colle le lien url de la vidéo ici..." 
             pattern="https://.*" 
             size="30"
             required class="input">
-            <input type="submit">
+            <button id="button" type="submit"></button>
         </div>
     </div>
+    <script>
+        const host = "http://"+window.location.host+"/";
+        document.querySelector("#button").addEventListener("click",function(){
+            let url = document.querySelector("#url").value;
+            window.open(host + "download?videoURL="+url);
+        });
+
+    </script>
 </body>
 </html>

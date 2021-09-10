@@ -1,5 +1,23 @@
 {
+  "name": "dinaconverter_mp4",
+  "description": "Permet de télécharger les vidéos youtube",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dianht/DinaConverter_mp4.git"
+  },
+  "author": "Dianht",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dianht/DinaConverter_mp4/issues"
+  },
+  "homepage": "https://github.com/Dianht/DinaConverter_mp4#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "ytdl-core": "^4.9.1"
   }
 }
