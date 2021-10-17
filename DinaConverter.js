@@ -1,11 +1,10 @@
-// Marche pas vu que c'est du NodeJs
-import express, { json, static } from "express";
+const express = require("express");
 const app = express();
-import { createWriteStream } from 'fs';
-import ytdl from 'ytdl-core';
+const fs = require('fs');
+const ytdl = require('ytdl-core')
 
-app.use(json());
-app.use(static("public"));
+app.use(express.json());
+app.use(express.static("public"));
 
 app.get("/", function(request, response) {
     response.sendFile(__dirname + "/index.html");
@@ -26,7 +25,7 @@ app.get("/script.js", function(request, response) {
 app.get("/download", async function(request, response) {
     //Retrieves the link and sends the ydtl module
     const videoURL = request.query.videoURL;
-    ytdl(videoURL).pipe(createWriteStream('video.mp4'));
+    ytdl(videoURL).pipe(fs.createWriteStream('video.mp4'));
 });
 
 app.listen((process.env.PORT || 5000), function(){
