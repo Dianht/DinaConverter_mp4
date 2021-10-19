@@ -25,12 +25,7 @@ app.get("/script.js", function(request, response) {
 app.get("/download", async function(request, response) {
     //Retrieves the link and sends the ydtl module
     const videoURL = request.query.videoURL;
-    
-    let stream = ytdl(videoURL).pipe(fs.createWriteStream("video.mp4"));
-    stream.on('finish', function() {
-        response.writeHead(204);
-        response.end();
-    });  
+    ytdl(videoURL).pipe(fs.createWriteStream("video.mp4"));
 });
 
 app.listen((process.env.PORT || 5000), function(){
